@@ -80,7 +80,7 @@ void ring_detected(void) {
 	lastISRTime = currentISRTime;
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char **argv) {
 	cfg_opt_t opts[] = {
 		CFG_SIMPLE_STR("host", &host),
 		CFG_SIMPLE_INT("port", &port),
@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
 
 	printf("Reading configuration...\n");
 	cfg = cfg_init(opts, 0);
-	cfg_parse(cfg, "tuerklingel.conf");
+	cfg_parse(cfg, argc > 1 ? argv[1] : "ringdong.conf");
 
 	if(host == NULL ||
 	   port == 0 ||
