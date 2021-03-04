@@ -1,12 +1,12 @@
-OBJS	= tuerklingel_detect.o
-SOURCE	= tuerklingel_detect.c
+OBJS	= ringdong.o
+SOURCE	= ringdong.c
 HEADER	= 
-OUT	= tuerklingel_detect
+OUT	= ringdong
 LFLAGS	 = -lconfuse -lmosquitto -lwiringPi -lrt -lcrypt -lm
 
-all: tuerklingel_detect
+all: ringdong
 
-tuerklingel_detect: $(OBJS)
+ringdong: $(OBJS)
 	$(CC) -o $@ $^ $(LFLAGS)
 
 %.o: %.c $(HEADER)
